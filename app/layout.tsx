@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import './globals.css';
 import { SwRegister } from './_components/SwRegister';
+import { THEME_BOOT_SCRIPT } from '@/lib/music/theme';
 
 export const metadata: Metadata = {
   title: '음악이론 게임 (가칭)',
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko">
       <body>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         {children}
         <SwRegister />
       </body>

@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { useNav } from '@/lib/nav';
 import { IconButton } from '@/components/shell/IconButton';
 import { SoundGate } from '@/components/shell/SoundGate';
+import { ThemeToggle } from '@/components/shell/ThemeToggle';
 import { COLLECTION, PUZZLES, STAGES } from '@/lib/chord/defs';
 import { useChordStore } from '@/store/chord';
 import { cn } from '@/lib/utils';
@@ -41,7 +42,10 @@ export function MenuScreen() {
     <div className="flex h-full flex-col">
       <div className="flex h-14 shrink-0 items-center justify-between px-3">
         <IconButton icon="chord/icons/icon-home" label="처음 화면" size={42} onClick={() => nav.go('/')} />
-        <IconButton icon="chord/icons/icon-settings" label="설정" size={42} onClick={openSettings} />
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <IconButton icon="chord/icons/icon-settings" label="설정" size={42} onClick={openSettings} />
+        </div>
       </div>
       <div className="flex shrink-0 flex-col items-center px-5 pt-[max(4px,2vh)]">
         <div className="flex items-end gap-2">
@@ -49,8 +53,8 @@ export function MenuScreen() {
           <ChordBadge chord="I" size={60} />
           <ChordBadge chord="V" size={44} className="wiggle" />
         </div>
-        <h1 className="mt-2 text-[44px] leading-none text-ink cm-text-shadow">화음 모드</h1>
-        <p className="mt-2 text-center text-[17px] leading-snug text-ink-dim cm-text-shadow">
+        <h1 className="mt-2 text-[44px] leading-none text-ink-art cm-text-shadow">화음 모드</h1>
+        <p className="mt-2 text-center text-[17px] leading-snug text-ink-art-dim cm-text-shadow">
           도·미·솔이 4개 모이면 팡!
           <br />
           화음과 마침꼴을 배워요

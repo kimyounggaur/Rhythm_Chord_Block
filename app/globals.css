@@ -45,6 +45,9 @@
   --chord-iv: #26a69a;
   --chord-v: #ab47bc;
   --sync: #ff9b3d;
+  /* 배경 그림 위에 바로 놓이는 글자 — 화이트 모드에서도 밝게 유지(그림은 그대로 어둡다) */
+  --ink-art: #fff6e3;
+  --ink-art-dim: #b9b9f0;
   color-scheme: dark;
 }
 
@@ -70,6 +73,8 @@
   --color-line: var(--panel-line);
   --color-ink: var(--ink);
   --color-ink-dim: var(--ink-dim);
+  --color-ink-art: var(--ink-art);
+  --color-ink-art-dim: var(--ink-art-dim);
   --color-ink-dark: var(--ink-dark);
   --color-gold: var(--gold);
   --color-pink: var(--pink);

@@ -6,6 +6,7 @@ import { preloadTone } from '@/lib/music/audio';
 import { asset } from '@/lib/music/assets';
 import { PhoneColumn } from './PhoneColumn';
 import { SoundGate } from './SoundGate';
+import { ThemeToggle } from './ThemeToggle';
 
 function ModeCard({
   title,
@@ -51,10 +52,13 @@ export default function Home() {
   }, []);
   return (
     <PhoneColumn background="chord/backgrounds/bg-title.svg">
+      <div className="absolute right-3 top-[max(12px,env(safe-area-inset-top))] z-10">
+        <ThemeToggle />
+      </div>
       <div className="flex h-full flex-col items-center px-5 pb-5 pt-[max(28px,6vh)]">
         <div className="text-center">
-          <h1 className="text-[40px] leading-none text-ink drop-shadow-[0_3px_0_rgba(30,20,80,.9)]">음악이론 게임</h1>
-          <p className="mt-2 text-lg text-ink-dim drop-shadow-[0_2px_0_rgba(30,20,80,.9)]">블록을 쌓으며 박자와 화음을 배워요</p>
+          <h1 className="text-[40px] leading-none text-ink-art drop-shadow-[0_3px_0_rgba(30,20,80,.9)]">음악이론 게임</h1>
+          <p className="mt-2 text-lg text-ink-art-dim drop-shadow-[0_2px_0_rgba(30,20,80,.9)]">블록을 쌓으며 박자와 화음을 배워요</p>
         </div>
         <div className="mt-[max(24px,5vh)] flex w-full max-w-[400px] flex-col gap-4">
           <ModeCard
@@ -76,7 +80,7 @@ export default function Home() {
         </div>
         <div className="mt-auto flex flex-col items-center gap-3">
           <SoundGate />
-          <p className="text-center text-xs text-ink-dim/80">가칭 · 시험판 v0.1 · 세로 화면 · 키보드도 돼요</p>
+          <p className="text-center text-xs text-ink-art-dim/80">가칭 · 시험판 v0.1 · 세로 화면 · 키보드도 돼요</p>
         </div>
       </div>
     </PhoneColumn>

@@ -9,6 +9,7 @@ import { cn, formatScore } from '@/lib/utils';
 import { isStageUnlocked, useRhythmSave } from '@/store/rhythm';
 import { IconButton } from '@/components/shell/IconButton';
 import { SoundGate } from '@/components/shell/SoundGate';
+import { ThemeToggle } from '@/components/shell/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 import { R, stageArt } from './art';
@@ -36,8 +37,9 @@ export function MenuScreen({ onStage, onEndless, onCollection, onSettings, onHom
       <div className="flex h-14 shrink-0 items-center gap-2 px-3">
         <IconButton icon={R('icons/icon-home')} label="처음 화면" size={42} onClick={onHome} />
         <div className="flex-1 text-center">
-          <h1 className="text-[28px] leading-none text-ink drop-shadow-[0_3px_0_rgba(30,20,80,.9)]">리듬 모드</h1>
+          <h1 className="text-[28px] leading-none text-ink-art drop-shadow-[0_3px_0_rgba(30,20,80,.9)]">리듬 모드</h1>
         </div>
+        <ThemeToggle />
         <IconButton icon={R('icons/icon-settings')} label="설정" size={42} onClick={onSettings} />
       </div>
 
@@ -57,8 +59,8 @@ export function MenuScreen({ onStage, onEndless, onCollection, onSettings, onHom
         </div>
 
         <div className="mb-2 flex items-baseline justify-between px-1">
-          <h2 className="text-[20px] text-ink">스테이지</h2>
-          <span className="text-[14px] text-ink-dim">
+          <h2 className="text-[20px] text-ink-art">스테이지</h2>
+          <span className="text-[14px] text-ink-art-dim">
             {cleared}/{STAGES.length} 클리어
           </span>
         </div>
