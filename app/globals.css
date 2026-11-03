@@ -1,0 +1,195 @@
+@import 'tailwindcss';
+
+/* Tailwind 가 클래스 이름을 찾을 폴더(Next.js·정적 배포본 빌드 둘 다 같은 목록을 쓰도록 명시) */
+@source '../app';
+@source '../components';
+@source '../lib';
+@source '../artifact';
+
+/* 화면 글꼴: Jua(배달의민족 주아, SIL OFL 1.1 — licenses/Jua-OFL.txt). 에셋 그림 속 글자와 같은 글꼴 */
+@font-face {
+  font-family: 'Jua';
+  src: url('./fonts/jua.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* 색 이름표 — 에셋 tokens.css 와 같은 값(docs/*-assets-tokens.css). 두 설계서 §13 "배경 어두운 남색 … 다크/라이트 모두 CSS 변수로" */
+:root {
+  --bg: #12122f;
+  --bg2: #1a1a45;
+  --panel: #24245c;
+  --panel2: #2f2f78;
+  --panel-line: #4a4aa8;
+  --ink: #fff6e3;
+  --ink-dim: #b9b9f0;
+  --ink-dark: #33296b;
+  --gold: #ffc83d;
+  --gold-deep: #c98710;
+  --pink: #ff8fb1;
+  --pink-deep: #c84d78;
+  --mint: #7fe5c4;
+  --mint-deep: #2f9e7c;
+  --sky: #7cc8ff;
+  --sky-deep: #3378c4;
+  --coral: #ff7a66;
+  --lav: #b49cff;
+  --pitch-do: #e53935;
+  --pitch-re: #fb8c00;
+  --pitch-mi: #fdd835;
+  --pitch-fa: #43a047;
+  --pitch-sol: #1e88e5;
+  --pitch-la: #3949ab;
+  --pitch-si: #8e24aa;
+  --pitch-x: #9e9e9e;
+  --chord-i: #ffc107;
+  --chord-iv: #26a69a;
+  --chord-v: #ab47bc;
+  --sync: #ff9b3d;
+  color-scheme: dark;
+}
+
+/* 밝은 화면(앱 설정에서 고를 때만 — html 에 data-app-theme="light"). 보드·타일 그림은 그대로 두고 메뉴·패널만 밝아진다.
+   게임 그림이 밤하늘 톤이라 기본은 어두운 화면 하나로 고정한다(시스템·호스트 테마를 따라가지 않음). */
+:root[data-app-theme='light'] {
+  --bg: #efeaff;
+  --bg2: #e2dcff;
+  --panel: #ffffff;
+  --panel2: #f3efff;
+  --panel-line: #c3b9f5;
+  --ink: #2a2360;
+  --ink-dim: #5a4fa8;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: 'Jua', system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-panel: var(--panel);
+  --color-panel2: var(--panel2);
+  --color-line: var(--panel-line);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-dark: var(--ink-dark);
+  --color-gold: var(--gold);
+  --color-pink: var(--pink);
+  --color-mint: var(--mint);
+  --color-sky: var(--sky);
+  --color-coral: var(--coral);
+  --color-lav: var(--lav);
+  --color-chord-i: var(--chord-i);
+  --color-chord-iv: var(--chord-iv);
+  --color-chord-v: var(--chord-v);
+  --color-sync: var(--sync);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Jua', system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* 떠오르는 점수 글자(두 설계서 §10 "항목별로 떠오르는 텍스트") */
+@keyframes float-up {
+  0% {
+    transform: translate(-50%, 6px) scale(0.85);
+    opacity: 0;
+  }
+  12% {
+    transform: translate(-50%, 0) scale(1.06);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -46px) scale(1);
+    opacity: 0;
+  }
+}
+.float-text {
+  position: absolute;
+  left: 50%;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: float-up 1.3s ease-out both;
+  text-shadow:
+    0 2px 0 rgba(30, 20, 80, 0.9),
+    0 0 6px rgba(30, 20, 80, 0.8);
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.pop-in {
+  animation: pop-in 0.28s ease-out both;
+}
+
+@keyframes toast-in {
+  0% {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(4deg);
+  }
+}
+.wiggle {
+  animation: wiggle 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-text,
+  .pop-in,
+  .wiggle {
+    animation-duration: 0.01s !important;
+  }
+}

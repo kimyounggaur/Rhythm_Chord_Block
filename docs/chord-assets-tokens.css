@@ -1,0 +1,91 @@
+/* 화음 게임 색상·크기 이름표 v0.1 — 에셋과 같은 값. 화면을 새로 만들 때 이 값을 쓰면 어울려요. */
+:root {
+  /* 계이름 타일 색 (설계서 §4.2). main = 본색, top/bot = 젤리 위·아래 그림자색, base = 바닥 두께색, light = 반사광색 */
+  --pitch-do: #E53935;
+  --pitch-do-top: #FF8A80;
+  --pitch-do-bot: #CF2F2C;
+  --pitch-do-base: #9B1C1C;
+  --pitch-do-light: #FFD0CC;
+  --pitch-re: #FB8C00;
+  --pitch-re-top: #FFBE55;
+  --pitch-re-bot: #F27A00;
+  --pitch-re-base: #B35500;
+  --pitch-re-light: #FFE3B8;
+  --pitch-mi: #FDD835;
+  --pitch-mi-top: #FFF59A;
+  --pitch-mi-bot: #FBC02D;
+  --pitch-mi-base: #B8860E;
+  --pitch-mi-light: #FFF9C4;
+  --pitch-fa: #43A047;
+  --pitch-fa-top: #8FD491;
+  --pitch-fa-bot: #2E8B3A;
+  --pitch-fa-base: #1F6B2A;
+  --pitch-fa-light: #CDEBCE;
+  --pitch-sol: #1E88E5;
+  --pitch-sol-top: #74BDF7;
+  --pitch-sol-bot: #1976D2;
+  --pitch-sol-base: #0F4F9E;
+  --pitch-sol-light: #BFE0FB;
+  --pitch-la: #3949AB;
+  --pitch-la-top: #8391E4;
+  --pitch-la-bot: #303F9F;
+  --pitch-la-base: #1E2A78;
+  --pitch-la-light: #C9CEF0;
+  --pitch-si: #8E24AA;
+  --pitch-si-top: #C96EDB;
+  --pitch-si-bot: #7B1FA2;
+  --pitch-si-base: #521470;
+  --pitch-si-light: #E6C4EE;
+  --pitch-sol-sharp: #00ACC1;
+  --pitch-sol-sharp-top: #6FE3F2;
+  --pitch-sol-sharp-bot: #0097A7;
+  --pitch-sol-sharp-base: #006064;
+  --pitch-sol-sharp-light: #B2EBF2;
+  --pitch-junk: #9E9E9E;
+  --pitch-junk-top: #CFCFCF;
+  --pitch-junk-bot: #8A8A8A;
+  --pitch-junk-base: #5C5C5C;
+  --pitch-junk-light: #EEEEEE;
+  /* 솔♯(가단조 확장)과 방해 타일(junk): 설계서에 색 지정이 없어 제안한 값이에요(방해 타일 회색만 설계서 값). */
+
+  /* 화음 색 — 덩어리 받침대·배지·화음 칩. 타일 색과 겹치지 않게 골랐어요. 딸림7화음(V7)은 딸림화음과 같은 보라 + 점선 */
+  --chord-i: #FFC107;   /* I 으뜸화음 = 도·미·솔 */
+  --chord-iv: #26A69A;   /* IV 버금딸림화음 = 파·라·도 */
+  --chord-v: #AB47BC;   /* V 딸림화음 = 솔·시·레 */
+
+  /* 화면 색 */
+  --navy0: #12122F;
+  --navy1: #1A1A45;
+  --navy2: #24245C;
+  --navy3: #2F2F78;
+  --navy4: #4A4AA8;
+  --lilac: #B9B9F0;
+  --cream: #FFF6E3;
+  --cream2: #FFE9C7;
+  --ink: #33296B;
+  --ink2: #5A4FA8;
+  --pink: #FF8FB1;
+  --pink2: #E8588A;
+  --pink0: #FFC9DA;
+  --mint: #7FE5C4;
+  --mint2: #37B995;
+  --sky: #7CC8FF;
+  --sky2: #3E9BE8;
+  --gold: #FFC83D;
+  --gold2: #F29A1F;
+  --gold0: #FFF0A8;
+  --coral: #FF7A66;
+  --coral2: #D9513F;
+  --peach: #FFB88A;
+  --lav: #B49CFF;
+  --lav2: #7B63D9;
+  --white: #FFFFFF;
+
+  /* 보드 크기 (360×780 화면 기준, 설계서 §13) */
+  --cell: 38px;          /* 한 칸 */
+  --board-cols: 7;
+  --board-rows: 14;       /* 보이는 줄. 맨 위 숨은 줄은 그림이 필요 없음 */
+  --halo-offset: 0.125;    /* 받침대 그림(120)은 칸(96)보다 사방 12/96 만큼 크게 그려져 있어요 → 얹을 때 칸 왼쪽 위에서 칸 크기의 12.5% 만큼 당겨 놓기 */
+  --screen-w: 360px;
+  --screen-h: 780px;
+}

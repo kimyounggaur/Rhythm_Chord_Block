@@ -1,0 +1,59 @@
+{
+  "_comment": "화음 모드 상수 — 설계서 부록 A 그대로 + 확장 필드. roman·rank·fn·art 는 화면·동점 처리용, i·iv·Va 는 스테이지 10(가단조, 솔♯=G#) 확장. fn 은 화성 기능(진행 보너스 표에 정확한 짝이 없을 때 기능으로 다시 찾는다: Ⅴ7→Ⅳ = Ⅴ→Ⅳ, Ⅴ(가단조)→ⅰ = Ⅴ→Ⅰ). rank 는 '대표 화음' 동점 순서(§8: Ⅰ > Ⅴ > Ⅳ, 작을수록 앞).",
+  "chords": [
+    { "id": "I",  "name": "으뜸화음",      "tones": ["C","E","G"],     "root": "C",
+      "key": "C", "fn": "I", "roman": "Ⅰ", "rank": 0, "color": "#FFC107",
+      "art": { "halo": "i", "badge": "chord-badge-i", "chip": "chord-chip-i", "burst": "i", "hint": "i" } },
+    { "id": "IV", "name": "버금딸림화음",  "tones": ["F","A","C"],     "root": "F",
+      "key": "C", "fn": "IV", "roman": "Ⅳ", "rank": 3, "color": "#26A69A",
+      "art": { "halo": "iv", "badge": "chord-badge-iv", "chip": "chord-chip-iv", "burst": "iv", "hint": "iv" } },
+    { "id": "V",  "name": "딸림화음",      "tones": ["G","B","D"],     "root": "G",
+      "key": "C", "fn": "V", "roman": "Ⅴ", "rank": 2, "color": "#AB47BC",
+      "art": { "halo": "v", "badge": "chord-badge-v", "chip": "chord-chip-v", "burst": "v", "hint": "v" } },
+    { "id": "V7", "name": "딸림7화음",     "tones": ["G","B","D","F"], "root": "G", "requiredTones": ["G","B","D","F"], "fallback": "V",
+      "key": "C", "fn": "V", "roman": "Ⅴ7", "rank": 1, "color": "#AB47BC",
+      "art": { "halo": "v7", "badge": "chord-badge-v7", "chip": "chord-chip-v7", "burst": "v", "hint": "v" } },
+    { "id": "i",  "name": "으뜸화음",      "tones": ["A","C","E"],     "root": "A",
+      "key": "a", "fn": "I", "roman": "ⅰ", "rank": 0, "color": "#FFC107",
+      "art": { "halo": "i", "badge": "chord-badge-i-minor", "chip": null, "burst": "i", "hint": "i" } },
+    { "id": "iv", "name": "버금딸림화음",  "tones": ["D","F","A"],     "root": "D",
+      "key": "a", "fn": "IV", "roman": "ⅳ", "rank": 3, "color": "#26A69A",
+      "art": { "halo": "iv", "badge": "chord-badge-iv-minor", "chip": null, "burst": "iv", "hint": "iv" } },
+    { "id": "Va", "name": "딸림화음",      "tones": ["E","G#","B"],    "root": "E",
+      "key": "a", "fn": "V", "roman": "Ⅴ", "rank": 2, "color": "#AB47BC",
+      "art": { "halo": "v", "badge": "chord-badge-v", "chip": null, "burst": "v", "hint": "v" } }
+  ],
+  "progressionBonus": [
+    { "from": "V",  "to": "I",  "bonus": 8,  "name": "정격마침", "text": "정격마침! 긴장이 풀렸어요" },
+    { "from": "IV", "to": "I",  "bonus": 6,  "name": "변격마침", "text": "변격마침! 부드러운 마침" },
+    { "from": "IV", "to": "V",  "bonus": 4,  "name": "딸림 준비", "text": "딸림화음으로 가는 길" },
+    { "from": "I",  "to": "V",  "bonus": 3,  "name": "반마침", "text": "반마침. 아직 끝나지 않았어요" },
+    { "from": "I",  "to": "IV", "bonus": 2,  "name": "버금딸림 진행" },
+    { "from": "V",  "to": "IV", "bonus": 0,  "name": "역진행", "hint": "Ⅴ 다음 Ⅳ는 잘 쓰지 않아요" },
+    { "from": "V7", "to": "I",  "bonus": 10, "name": "정격마침(7)", "text": "7음(파)이 미로 내려와 해결" }
+  ],
+  "sequenceBonus": [
+    { "sequence": ["IV","V","I"],     "bonus": 12, "name": "마침 진행" },
+    { "sequence": ["I","IV","V","I"], "bonus": 24, "name": "기본 진행" }
+  ],
+  "chainPower": [0, 6, 14, 28, 50, 80, 110, 140, 170, 200],
+  "chainPowerStep": 30,
+  "groupBonus": { "4": 0, "5": 2, "6": 3, "7": 4, "8": 5, "9": 6, "10": 7, "11+": 10 },
+  "simulBonus": { "two": 3, "twoShared": 6, "three": 8 },
+  "allClear": 2000,
+  "collectionFirst": 500,
+  "collectionRepeat": 100,
+  "attackDivisor": 60,
+  "collection": [
+    { "id": "auth",     "name": "정격마침",       "progression": ["V","I"],         "description": "가장 강한 마침" },
+    { "id": "plagal",   "name": "변격마침",       "progression": ["IV","I"],        "description": "찬송가 끝의 '아멘'" },
+    { "id": "half",     "name": "반마침",         "progression": ["I","V"],         "description": "물음표처럼 열린 끝" },
+    { "id": "cad3",     "name": "마침 진행",      "progression": ["IV","V","I"],    "description": "준비 → 긴장 → 해결" },
+    { "id": "basic4",   "name": "기본 진행",      "progression": ["I","IV","V","I"], "description": "동요·민요의 뼈대" },
+    { "id": "i-v-i",    "name": "으뜸-딸림-으뜸", "progression": ["I","V","I"],     "description": "질문과 대답" },
+    { "id": "shared-c", "name": "공통음 도",      "shared": { "chords": ["I","IV"], "pitch": "C" }, "description": "도가 두 화음을 잇는다" },
+    { "id": "shared-g", "name": "공통음 솔",      "shared": { "chords": ["I","V"],  "pitch": "G" }, "description": "솔이 두 화음을 잇는다" },
+    { "id": "sextet",   "name": "6성부",          "minSize": 6,                      "description": "두터운 화음" },
+    { "id": "auth7",    "name": "정격마침(7)",    "progression": ["V7","I"],        "description": "7음이 해결되는 소리", "extension": true }
+  ]
+}

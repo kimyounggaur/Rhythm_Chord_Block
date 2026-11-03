@@ -1,0 +1,16 @@
+[
+  { "id": "4/4", "beats": 4, "beatUnit": 4, "width": 8, "beatStarts": [0,2,4,6],
+    "strength": [3,0,1,0,2,0,1,0], "beamGroups": [2,2,2,2], "notationGroups": [4,4] },
+  { "id": "3/4", "beats": 3, "beatUnit": 4, "width": 6, "beatStarts": [0,2,4],
+    "strength": [3,0,1,0,1,0], "beamGroups": [2,2,2], "notationGroups": [6] },
+  { "id": "6/8", "beats": 2, "beatUnit": 8, "width": 6, "beatStarts": [0,3],
+    "strength": [3,0,0,2,0,0], "beamGroups": [3,3], "notationGroups": [3,3] },
+  { "id": "9/8", "beats": 3, "beatUnit": 8, "width": 9, "beatStarts": [0,3,6],
+    "strength": [3,0,0,2,0,0,2,0,0], "beamGroups": [3,3,3], "notationGroups": [3,3,3] },
+  { "id": "12/8", "beats": 4, "beatUnit": 8, "width": 12, "beatStarts": [0,3,6,9],
+    "strength": [3,0,0,1,0,0,2,0,0,1,0,0], "beamGroups": [3,3,3,3], "notationGroups": [3,3,3,3] },
+  { "id": "5/4", "beats": 5, "beatUnit": 4, "width": 10, "beatStarts": [0,2,4,6,8],
+    "strength": [3,0,1,0,1,0,2,0,1,0], "beamGroups": [2,2,2,2,2], "notationGroups": [6,4] },
+  { "id": "7/8", "beats": 3, "beatUnit": 8, "width": 7, "beatStarts": [0,2,4],
+    "strength": [3,0,1,0,2,0,0], "beamGroups": [2,2,3], "notationGroups": [4,3] }
+]

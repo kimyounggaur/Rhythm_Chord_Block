@@ -1,0 +1,22 @@
+{
+  "name": "음악이론 게임 (가칭)",
+  "short_name": "음악 게임",
+  "description": "블록을 쌓으며 마디·박자·화음을 배우는 모바일 웹 게임 — 리듬 모드와 화음 모드",
+  "lang": "ko",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12122F",
+  "theme_color": "#12122F",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "리듬 모드", "short_name": "리듬", "url": "/rhythm/" },
+    { "name": "화음 모드", "short_name": "화음", "url": "/chord/" }
+  ]
+}
